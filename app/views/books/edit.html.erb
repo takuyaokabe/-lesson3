@@ -1,0 +1,29 @@
+<% if @book.errors.any? %>
+		  
+		  <h3><%=@book.errors.count %>errors prohibited this obj from being saved:</h3>
+		     <% @book.errors.full_messages.each do |msg| %>
+		  <%= msg %>
+
+	<% end%>
+<% end %>
+<div class="top-message col-md-offset-3 col-md-6">
+<h1>Editing Book</h1>
+
+
+<%= form_for(@book) do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title,:size => "75*26" %>
+<h4>Body</h4>
+<%= f.text_area :body,:size => "78*46" %></br>
+
+
+
+
+<%= f.submit "Update Book", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to("Show",book_path) %>
+<a>|</a>
+<%= link_to("Back", books_path)%>
+</div>
+
